@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lesson 3 Exercises - State and Event Handlers</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      const ButtonCounter = ({ count, setCount }) => {
+        function clickedBtn() {
+          const increased = setCount(count + 1);
+        }
+
+        return (
+          <>
+            <button onClick={clickedBtn}>
+              Clicked {count} {count === 1 ? "time" : "times"}
+            </button>
+          </>
+        );
+      };
+
+      const App = () => {
+        // const [count, setCount] = React.useState(0);
+
+        // function resetCounter() {
+        //   setCount(0);
+        // }
+
+        //  <ButtonCounter count={count} setCount={setCount} />
+        // <ButtonCounter count={count} setCount={setCount} />
+        // <button onClick={resetCounter}>Reset</button>
+
+        const [inputText, setInputText] = React.useState("");
+
+        function displayText() {
+          setInputText(event.target.value);
+        }
+
+        function removeText() {
+          setInputText("");
+        }
+
+        function sampleText() {
+          setInputText("John Doe");
+        }
+
+        return (
+          <>
+            <input
+              type="text"
+              placeholder="Type a name here..."
+              onChange={displayText}
+              value={inputText}
+            />
+
+            <button onClick={removeText}>Reset</button>
+            <button onClick={sampleText}>Example</button>
+
+            <p>Hello {inputText}</p>
+          </>
+        );
+      };
+
+      const container = document.querySelector(".js-container");
+      const root = ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
