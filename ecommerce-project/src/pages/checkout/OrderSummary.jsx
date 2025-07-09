@@ -18,7 +18,7 @@ export function OrderSummary({ cart, deliveryOptions }) {
               <div className="delivery-date">
                 Delivery date:{" "}
                 {dayjs(selectedDeliveryOption.estimatedDeliveryTimeMs).format(
-                  "DDDD, MMMM D"
+                  "dddd, MMMM D"
                 )}
               </div>
 
