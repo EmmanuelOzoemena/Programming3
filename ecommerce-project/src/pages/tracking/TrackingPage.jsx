@@ -15,7 +15,7 @@ export function TrackingPage({ cart }) {
         `/api/orders/${orderId}?expand=products`
       );
 
-      setOrder(response);
+      setOrder(response.data);
     };
 
     fetchTrackingData();
